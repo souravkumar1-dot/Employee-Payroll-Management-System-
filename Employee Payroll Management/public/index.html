@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA PAYROLL — Autonomous Compensation & Financial Intelligence</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Top Executive Command Bar -->
+  <header class="command-deck-header">
+    <div class="header-container">
+      <div class="brand-cluster">
+        <div class="brand-orb">
+          <div class="orb-inner"></div>
+        </div>
+        <div class="brand-titles">
+          <div class="brand-name">AURA<span>.pay</span></div>
+          <div class="brand-tag">Autonomous Payroll Engine &bull; Java 25 Native</div>
+        </div>
+      </div>
+
+      <!-- Center Pill Navigation -->
+      <nav class="deck-nav">
+        <button class="deck-tab active" data-tab="pulse">
+          <span class="tab-indicator"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          <span>Financial Pulse</span>
+        </button>
+        <button class="deck-tab" data-tab="directory">
+          <span class="tab-indicator"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Talent Ledger</span>
+        </button>
+        <button class="deck-tab" data-tab="execution">
+          <span class="tab-indicator"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Disbursement Matrix</span>
+        </button>
+        <button class="deck-tab" data-tab="slip">
+          <span class="tab-indicator"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Encrypted Slip</span>
+        </button>
+        <button class="deck-tab" data-tab="taxlab">
+          <span class="tab-indicator"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+          <span>Tax & Slab Lab</span>
+        </button>
+      </nav>
+
+      <!-- Right Utility Cluster -->
+      <div class="deck-controls">
+        <!-- Quick Command Palette Button -->
+        <button class="cmd-palette-trigger" id="cmdPaletteBtn" title="Press Ctrl+K or Cmd+K">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span class="cmd-label">Quick Search</span>
+          <kbd class="cmd-key">⌘K</kbd>
+        </button>
+
+        <!-- Currency Selector -->
+        <div class="currency-switch-box">
+          <select id="currencySelect" class="pill-select" title="Toggle Display Currency">
+            <option value="INR" selected>INR (₹)</option>
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+          </select>
+        </div>
+
+        <!-- Light / Dark Theme Toggle Switcher -->
+        <button class="theme-toggle-pill" id="themeToggleBtn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme (Light / Dark)">
+          <div class="toggle-track">
+            <span class="toggle-icon sun-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </span>
+            <span class="toggle-icon moon-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </span>
+            <div class="toggle-slider"></div>
+          </div>
+        </button>
+
+        <!-- Engine Status Pill -->
+        <div class="engine-badge" id="engineBadge">
+          <span class="engine-ping"></span>
+          <span class="engine-txt" id="engineStatusTxt">Java SE :8080</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub-header Ribbon with Period Switcher & Quick Launch -->
+  <div class="ribbon-bar">
+    <div class="ribbon-container">
+      <div class="cycle-cluster">
+        <span class="cycle-tag">AUDIT PERIOD</span>
+        <div class="cycle-pill-group" id="cyclePills">
+          <button class="cycle-pill active" data-cycle="2026-10">October 2026</button>
+          <button class="cycle-pill" data-cycle="2026-09">September 2026</button>
+          <button class="cycle-pill" data-cycle="2026-08">August 2026</button>
+          <button class="cycle-pill" data-cycle="ALL">Comprehensive Ledger</button>
+        </div>
+      </div>
+
+      <div class="ribbon-actions">
+        <button class="action-neo-btn" id="openPayrollRunModal">
+          <span class="neo-dot"></span>
+          <span>Execute Auto-Payroll</span>
+        </button>
+        <button class="action-ghost-btn" id="openAddTalentModal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>Enroll Talent</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Workspace Content -->
+  <main class="deck-stage">
+    <!-- VIEW 1: FINANCIAL PULSE (DASHBOARD) -->
+    <section id="view-pulse" class="deck-view active">
+      <!-- High-tech Metric Ribbon -->
+      <div class="fin-stats-grid">
+        <div class="stat-capsule" style="--accent-hue: 245;">
+          <div class="stat-top">
+            <span class="stat-header">Net Capital Disbursed</span>
+            <span class="stat-trend up">▲ 4.8% vs Q2</span>
+          </div>
+          <div class="stat-number" id="pulseNetPay">₹0</div>
+          <div class="stat-foot">
+            <span>Gross Exposure: <strong id="pulseGrossPay">₹0</strong></span>
+          </div>
+          <div class="capsule-glow"></div>
+        </div>
+
+        <div class="stat-capsule" style="--accent-hue: 155;">
+          <div class="stat-top">
+            <span class="stat-header">Compliance & Statutory</span>
+            <span class="stat-badge">Sec 192 / 194J</span>
+          </div>
+          <div class="stat-number" id="pulseTaxPay">₹0</div>
+          <div class="stat-foot">
+            <span>Provident Fund Withheld: <strong id="pulsePfPay">₹0</strong></span>
+          </div>
+          <div class="capsule-glow"></div>
+        </div>
+
+        <div class="stat-capsule" style="--accent-hue: 35;">
+          <div class="stat-top">
+            <span class="stat-header">Talent Velocity</span>
+            <span class="stat-badge amber" id="pulseStatusRate">0% Settled</span>
+          </div>
+          <div class="stat-number" id="pulseHeadcount">0</div>
+          <div class="stat-foot">
+            <span>Disbursement: <strong id="pulsePaidRatio">0 / 0</strong> accounts</span>
+          </div>
+          <div class="capsule-glow"></div>
+        </div>
+
+        <div class="stat-capsule" style="--accent-hue: 290;">
+          <div class="stat-top">
+            <span class="stat-header">Avg Compensation Rate</span>
+            <span class="stat-badge purple">Per Resource</span>
+          </div>
+          <div class="stat-number" id="pulseAvgSalary">₹0</div>
+          <div class="stat-foot">
+            <span>Across <strong id="pulseDeptCount">0</strong> Strategic Units</span>
+          </div>
+          <div class="capsule-glow"></div>
+        </div>
+      </div>
+
+      <!-- Bento Grid Layout: Department Burn & Tier Topology -->
+      <div class="bento-container">
+        <!-- Interactive Department Expenditure Spectrum -->
+        <div class="bento-cell cell-2x">
+          <div class="cell-head">
+            <div>
+              <h3>Capital Distribution by Organizational Division</h3>
+              <p>Dynamic cost-center allocation across operational squads</p>
+            </div>
+            <span class="live-pill">Live Telemetry</span>
+          </div>
+          <div class="cell-body">
+            <div class="spectrum-chart" id="spectrumContainer">
+              <!-- Dynamically populated custom bars -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Anomaly & Intelligence Radar -->
+        <div class="bento-cell">
+          <div class="cell-head">
+            <div>
+              <h3>Audit & Intelligence Engine</h3>
+              <p>Automated payroll sanity & compliance checks</p>
+            </div>
+          </div>
+          <div class="cell-body">
+            <div class="audit-feed" id="auditFeedContainer">
+              <div class="audit-card check-ok">
+                <div class="audit-dot"></div>
+                <div class="audit-text">
+                  <strong>Tax Withholding Compliance</strong>
+                  <span>TDS calculated per 2026 statutory slabs</span>
+                </div>
+              </div>
+              <div class="audit-card check-ok">
+                <div class="audit-dot"></div>
+                <div class="audit-text">
+                  <strong>Statutory PF (12%) Audited</strong>
+                  <span>Auto-allocated for Salaried & Executive cadres</span>
+                </div>
+              </div>
+              <div class="audit-card check-info">
+                <div class="audit-dot"></div>
+                <div class="audit-text">
+                  <strong>Dual Storage Sync</strong>
+                  <span>Persistent JSON atomic disk backup active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Disbursement Stream Table -->
+      <div class="bento-cell" style="margin-top: 1.5rem;">
+        <div class="cell-head flex-between">
+          <div>
+            <h3>Current Cycle Settlement Feed</h3>
+            <p>Real-time compensation ledger & status tracking</p>
+          </div>
+          <button class="action-ghost-btn sm" onclick="switchDeckTab('execution')">Open Full Settlement Deck &rarr;</button>
+        </div>
+        <div class="cell-body p-0">
+          <div class="deck-table-scroller">
+            <table class="neo-table">
+              <thead>
+                <tr>
+                  <th>Voucher ID</th>
+                  <th>Resource</th>
+                  <th>Unit & Role</th>
+                  <th>Gross Allocation</th>
+                  <th>Statutory Cuts</th>
+                  <th>Net Disbursed</th>
+                  <th>State</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="pulseTableBody">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: TALENT LEDGER (EMPLOYEES) -->
+    <section id="view-directory" class="deck-view">
+      <div class="bento-cell">
+        <div class="cell-head flex-between">
+          <div class="filter-controls-row">
+            <div class="neo-search-input">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="talentSearchInput" placeholder="Filter resource by identity, role, or ID...">
+            </div>
+            <select id="talentDeptFilter" class="pill-select">
+              <option value="ALL">All Departments</option>
+            </select>
+            <select id="talentTierFilter" class="pill-select">
+              <option value="ALL">All Employment Tiers</option>
+              <option value="FULL_TIME">Salaried Full-Time</option>
+              <option value="MANAGER">Executive & Leadership</option>
+              <option value="PART_TIME">Hourly Consultant</option>
+              <option value="CONTRACTOR">Independent Contractor</option>
+            </select>
+          </div>
+          <button class="action-neo-btn" onclick="openTalentModal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>Add Resource</span>
+          </button>
+        </div>
+
+        <div class="cell-body p-0">
+          <div class="deck-table-scroller">
+            <table class="neo-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Resource Identity</th>
+                  <th>Organizational Role</th>
+                  <th>Contract Model</th>
+                  <th>Base Structure</th>
+                  <th>Tax & Settlement Banking</th>
+                  <th>Cadre Status</th>
+                  <th>Operations</th>
+                </tr>
+              </thead>
+              <tbody id="talentTableBody">
+                <!-- Filled dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: DISBURSEMENT MATRIX (PAYROLL RUNS) -->
+    <section id="view-execution" class="deck-view">
+      <div class="bento-cell">
+        <div class="cell-head flex-between">
+          <div class="filter-controls-row">
+            <div class="neo-search-input">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="disburseSearchInput" placeholder="Locate voucher or personnel...">
+            </div>
+            <select id="disburseStatusFilter" class="pill-select">
+              <option value="ALL">All Settlement States</option>
+              <option value="PAID">Settled (PAID)</option>
+              <option value="PENDING">Pending Approval</option>
+              <option value="PROCESSING">Bank Processing</option>
+            </select>
+          </div>
+          <div class="ribbon-actions">
+            <button class="action-ghost-btn" id="exportCsvTrigger">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Export Ledger (.CSV)</span>
+            </button>
+            <button class="action-neo-btn" onclick="document.getElementById('payrollRunModal').classList.add('active')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span>Run Cycle Engine</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="cell-body p-0">
+          <div class="deck-table-scroller">
+            <table class="neo-table">
+              <thead>
+                <tr>
+                  <th>Voucher</th>
+                  <th>Personnel</th>
+                  <th>Tier</th>
+                  <th>Attendance</th>
+                  <th>Basic</th>
+                  <th>Allowances</th>
+                  <th>Overtime</th>
+                  <th>Gross Total</th>
+                  <th>PF Withheld</th>
+                  <th>TDS Tax</th>
+                  <th>Net Take-Home</th>
+                  <th>Disbursement State</th>
+                  <th>Slip</th>
+                </tr>
+              </thead>
+              <tbody id="disburseTableBody">
+                <!-- Filled dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: ENCRYPTED DIGITAL PAYSLIP -->
+    <section id="view-slip" class="deck-view">
+      <div class="slip-presentation-deck">
+        <div class="slip-command-bar no-print">
+          <div class="slip-selector-wrap">
+            <label for="slipSelectDropdown">Voucher Selector:</label>
+            <select id="slipSelectDropdown" class="pill-select">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+          <div class="slip-actions">
+            <button class="action-ghost-btn" onclick="downloadSlipJSON()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>JSON Receipt</span>
+            </button>
+            <button class="action-neo-btn" onclick="window.print()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              <span>Print Authenticated Slip (PDF)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Printable Document Artifact -->
+        <article class="slip-document-container" id="printablePayslipDeck">
+          <div class="security-strip">AUTHENTICATED FINANCIAL VOUCHER &bull; ISO-27001 SECURED &bull; VERIFIED HASH</div>
+          
+          <div class="slip-meta-header">
+            <div class="corp-brand">
+              <div class="corp-seal">AP</div>
+              <div>
+                <h2>AURA TECHNOLOGIES PRIVATE LIMITED</h2>
+                <p>Global Financial Operations &bull; Corporate Identity: U72900KA2024PTC199874</p>
+                <p class="sub-addr">Cyber Park Boulevard, Tech Zone, Bangalore 560103, India</p>
+              </div>
+            </div>
+            <div class="slip-status-box">
+              <span class="slip-big-badge">SALARY DISBURSEMENT STATEMENT</span>
+              <div class="slip-cycle-tag" id="slipPeriodLabel">October 2026 Cycle</div>
+              <div class="slip-ref-hash" id="slipTxnHash">TXN-8849-AF01</div>
+            </div>
+          </div>
+
+          <!-- Employee Identity Grid -->
+          <div class="identity-matrix">
+            <div class="matrix-cell">
+              <span class="matrix-lbl">Resource Identity</span>
+              <strong class="matrix-val" id="slipName">--</strong>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-lbl">System Staff ID</span>
+              <strong class="matrix-val font-mono" id="slipStaffId">--</strong>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-lbl">Designation / Role</span>
+              <strong class="matrix-val" id="slipRole">--</strong>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-lbl">Strategic Unit</span>
+              <strong class="matrix-val" id="slipDept">--</strong>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-lbl">Settlement Account</span>
+              <strong class="matrix-val font-mono" id="slipBank">--</strong>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-lbl">Permanent Tax PAN</span>
+              <strong class="matrix-val font-mono" id="slipPan">--</strong>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-lbl">Attendance Factor</span>
+              <strong class="matrix-val" id="slipAttendance">--</strong>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-lbl">Contract Classification</span>
+              <strong class="matrix-val" id="slipTier">--</strong>
+            </div>
+          </div>
+
+          <!-- Earnings & Deductions Dual Grid -->
+          <div class="financial-balance-sheet">
+            <div class="sheet-column earnings-column">
+              <div class="sheet-title-bar">
+                <span>GROSS COMPENSATIONS (EARNINGS)</span>
+                <span>AMOUNT</span>
+              </div>
+              <div class="sheet-lines">
+                <div class="sheet-row"><span>Contract Basic Remuneration</span><strong id="slipBasic">₹0.00</strong></div>
+                <div class="sheet-row"><span>House Rent Allowance (HRA 20%)</span><strong id="slipHra">₹0.00</strong></div>
+                <div class="sheet-row"><span>Dearness & Medical Allowance</span><strong id="slipDaMed">₹0.00</strong></div>
+                <div class="sheet-row"><span>Leadership & Special Allowance</span><strong id="slipLead">₹0.00</strong></div>
+                <div class="sheet-row"><span>Billable Overtime Compensation</span><strong id="slipOvertime">₹0.00</strong></div>
+                <div class="sheet-row"><span>Performance Incentive / Bonus</span><strong id="slipBonus">₹0.00</strong></div>
+              </div>
+              <div class="sheet-sum-row earnings-sum">
+                <span>AGGREGATE GROSS ACCRUALS</span>
+                <span id="slipGross">₹0.00</span>
+              </div>
+            </div>
+
+            <div class="sheet-column deductions-column">
+              <div class="sheet-title-bar">
+                <span>STATUTORY WITHHOLDINGS (DEDUCTIONS)</span>
+                <span>AMOUNT</span>
+              </div>
+              <div class="sheet-lines">
+                <div class="sheet-row"><span>Provident Fund (Employee 12% PF)</span><strong id="slipPf">₹0.00</strong></div>
+                <div class="sheet-row"><span>Income Tax Withholding (TDS Sec 192)</span><strong id="slipTax">₹0.00</strong></div>
+                <div class="sheet-row"><span>Professional Tax (PT Statutory)</span><strong id="slipPt">₹0.00</strong></div>
+                <div class="sheet-row"><span>Corporate Health Cover Group</span><strong id="slipIns">₹0.00</strong></div>
+                <div class="sheet-row"><span>Loss of Pay / Absence Adjustments</span><strong>₹0.00</strong></div>
+              </div>
+              <div class="sheet-sum-row deductions-sum">
+                <span>TOTAL DEDUCTIONS APPLIED</span>
+                <span id="slipDeduct">₹0.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total Net Remittance Ribbon -->
+          <div class="remittance-ribbon">
+            <div class="remittance-narrative">
+              <span class="remit-lead">NET REMITTANCE DUE TO TALENT</span>
+              <span class="remit-words" id="slipWords">Rupees Zero Only</span>
+            </div>
+            <div class="remittance-figure">
+              <span class="curr-sym" id="slipNetCurrency">INR</span>
+              <span class="figure-val" id="slipNet">₹0.00</span>
+            </div>
+          </div>
+
+          <!-- Authenticated Seal & Footer -->
+          <footer class="slip-vault-footer">
+            <div class="vault-info">
+              <div class="qr-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>SCAN VERIFY</span>
+              </div>
+              <div class="vault-terms">
+                <p>This statement constitutes an electronically sealed financial record emitted by the AURA Autonomous Payroll Engine.</p>
+                <p>Timestamp of emission: <strong id="slipTimestamp">2026-10-31</strong> &bull; Node Signature: <code id="slipNodeSig">0x7F9B...44EA</code></p>
+              </div>
+            </div>
+            <div class="vault-sign-box">
+              <div class="hologram-seal">CRYPTOGRAPHICALLY VERIFIED</div>
+              <span class="sign-caption">Financial Comptroller Signature</span>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- VIEW 5: TAX & SLAB SIMULATION LAB -->
+    <section id="view-taxlab" class="deck-view">
+      <div class="bento-container">
+        <!-- Interactive Controls -->
+        <div class="bento-cell cell-2x">
+          <div class="cell-head">
+            <div>
+              <h3>Dynamic Compensation & Tax Regime Simulator</h3>
+              <p>Stress-test compensation models, tax brackets, and attendance scenarios in real-time</p>
+            </div>
+            <span class="live-pill">Interactive Sandbox</span>
+          </div>
+
+          <div class="cell-body">
+            <div class="lab-form-grid">
+              <div class="lab-field">
+                <label for="labTier">Employment Architecture</label>
+                <select id="labTier" class="pill-select w-full">
+                  <option value="FULL_TIME">Salaried Full-Time (HRA 20% + DA 10% + 12% PF)</option>
+                  <option value="MANAGER">Executive / Leadership (Includes Profit & Leadership Stipend)</option>
+                  <option value="PART_TIME">Hourly Consultant (Billed at 4 hrs/day standard shift)</option>
+                  <option value="CONTRACTOR">Retainer Contractor (Section 194J 10% Flat TDS)</option>
+                </select>
+              </div>
+
+              <div class="lab-field">
+                <label for="labBasePay" id="labBaseLabel">Base Compensation / Rate</label>
+                <input type="number" id="labBasePay" class="neo-input" value="80000" step="1000">
+              </div>
+
+              <div class="lab-field" id="labLeadField" style="display: none;">
+                <label for="labLeadAllowance">Executive Leadership Allowance</label>
+                <input type="number" id="labLeadAllowance" class="neo-input" value="18000" step="1000">
+              </div>
+
+              <div class="lab-field">
+                <label for="labWorkingDays">Standard Working Days in Cycle</label>
+                <input type="number" id="labWorkingDays" class="neo-input" value="22" min="15" max="31">
+              </div>
+
+              <div class="lab-field">
+                <label for="labPresentDays">Days Successfully Attended</label>
+                <input type="number" id="labPresentDays" class="neo-input" value="22" min="0" max="31">
+              </div>
+
+              <div class="lab-field">
+                <label for="labOvertime">Billable Overtime Hours</label>
+                <input type="number" id="labOvertime" class="neo-input" value="10" min="0" max="80">
+              </div>
+
+              <div class="lab-field">
+                <label for="labBonus">Milestone Incentive / Bonus</label>
+                <input type="number" id="labBonus" class="neo-input" value="6000" step="500">
+              </div>
+            </div>
+
+            <!-- Visual Slider of Tax Slab Bracket -->
+            <div class="slab-visualizer-box">
+              <h4>Progressive Annualized Tax Slab Position</h4>
+              <div class="slab-bar-track">
+                <div class="slab-segment slab-0">0% (Up to ₹5L)</div>
+                <div class="slab-segment slab-10">10% (₹5L - ₹8L)</div>
+                <div class="slab-segment slab-15">15% (₹8L - ₹12L)</div>
+                <div class="slab-segment slab-20">20% (Above ₹12L)</div>
+              </div>
+              <div class="slab-marker" id="slabMarker">
+                <span>Annualized: <strong id="slabAnnualVal">₹0</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-Time Computed Telemetry Card -->
+        <div class="bento-cell">
+          <div class="cell-head">
+            <div>
+              <h3>Estimated Take-Home</h3>
+              <p>Immediate net settlement forecast</p>
+            </div>
+          </div>
+          <div class="cell-body">
+            <div class="lab-net-hero">
+              <span class="hero-lbl">FORECASTED NET TAKE-HOME</span>
+              <div class="hero-val" id="labResultNet">₹0</div>
+              <span class="hero-sub" id="labResultNetWords">Rupees Zero</span>
+            </div>
+
+            <div class="lab-breakdown-list">
+              <div class="lab-row"><span>Earned Base</span><strong id="labResBasic">₹0</strong></div>
+              <div class="lab-row"><span>Allowances (HRA/DA/Med)</span><strong id="labResAllow">₹0</strong></div>
+              <div class="lab-row"><span>Overtime Remuneration</span><strong id="labResOvertime">₹0</strong></div>
+              <div class="lab-row"><span>Bonus / Incentive</span><strong id="labResBonus">₹0</strong></div>
+              <div class="lab-row highlight"><span>Forecasted Gross</span><strong id="labResGross">₹0</strong></div>
+              <div class="lab-row cut"><span>Provident Fund (12%)</span><strong id="labResPf">- ₹0</strong></div>
+              <div class="lab-row cut"><span>Income Tax (TDS)</span><strong id="labResTax">- ₹0</strong></div>
+              <div class="lab-row cut"><span>Professional Tax & PT</span><strong id="labResOther">- ₹0</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL: ADD / EDIT TALENT -->
+  <div class="neo-modal-backdrop" id="talentModal">
+    <div class="neo-modal-window">
+      <div class="modal-title-bar">
+        <h3 id="talentModalTitle">Enroll New Talent Resource</h3>
+        <button class="modal-x-btn" onclick="document.getElementById('talentModal').classList.remove('active')">&times;</button>
+      </div>
+      <form id="talentForm">
+        <input type="hidden" id="formEmpId">
+        <div class="modal-scroll-body">
+          <div class="lab-form-grid">
+            <div class="lab-field">
+              <label for="formName">Full Legal Name *</label>
+              <input type="text" id="formName" class="neo-input" required placeholder="e.g. Maya Iyer">
+            </div>
+            <div class="lab-field">
+              <label for="formEmail">Corporate Enterprise Email *</label>
+              <input type="email" id="formEmail" class="neo-input" required placeholder="name@company.com">
+            </div>
+            <div class="lab-field">
+              <label for="formDept">Strategic Department *</label>
+              <input type="text" id="formDept" class="neo-input" required placeholder="e.g. Engineering, Quant Finance">
+            </div>
+            <div class="lab-field">
+              <label for="formDesignation">Designation / Official Title *</label>
+              <input type="text" id="formDesignation" class="neo-input" required placeholder="e.g. Principal Architect">
+            </div>
+            <div class="lab-field">
+              <label for="formType">Employment Classification *</label>
+              <select id="formType" class="pill-select w-full">
+                <option value="FULL_TIME">Salaried Full-Time</option>
+                <option value="MANAGER">Executive & Leadership</option>
+                <option value="PART_TIME">Hourly Consultant</option>
+                <option value="CONTRACTOR">Independent Contractor</option>
+              </select>
+            </div>
+            <div class="lab-field">
+              <label for="formBasePay" id="formBaseLabel">Monthly Base Compensation (₹) *</label>
+              <input type="number" id="formBasePay" class="neo-input" required value="65000">
+            </div>
+            <div class="lab-field" id="formLeadWrap" style="display: none;">
+              <label for="formLead">Leadership Allowance (₹)</label>
+              <input type="number" id="formLead" class="neo-input" value="12000">
+            </div>
+            <div class="lab-field">
+              <label for="formBank">Settlement Bank Account / IFSC</label>
+              <input type="text" id="formBank" class="neo-input" placeholder="HDFC0008899">
+            </div>
+            <div class="lab-field">
+              <label for="formPan">Tax PAN / SSN Identifier</label>
+              <input type="text" id="formPan" class="neo-input" placeholder="ABCDE1234F">
+            </div>
+            <div class="lab-field">
+              <label for="formStatus">Operational Status</label>
+              <select id="formStatus" class="pill-select w-full">
+                <option value="ACTIVE">Active Deployment</option>
+                <option value="ON_LEAVE">Sabbatical / Leave</option>
+                <option value="INACTIVE">Decommissioned</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions-bar">
+          <button type="button" class="action-ghost-btn" onclick="document.getElementById('talentModal').classList.remove('active')">Dismiss</button>
+          <button type="submit" class="action-neo-btn">Save Resource Profile</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: EXECUTE AUTO-PAYROLL -->
+  <div class="neo-modal-backdrop" id="payrollRunModal">
+    <div class="neo-modal-window sm">
+      <div class="modal-title-bar">
+        <h3>Trigger Autonomous Payroll Run</h3>
+        <button class="modal-x-btn" onclick="document.getElementById('payrollRunModal').classList.remove('active')">&times;</button>
+      </div>
+      <form id="payrollRunForm">
+        <div class="modal-scroll-body">
+          <p class="modal-narrative">The Java calculation engine will compute attendance proration, statutory PF contributions, progressive income tax slabs, and allowances for all active personnel.</p>
+          <div class="lab-form-grid" style="grid-template-columns: 1fr;">
+            <div class="lab-field">
+              <label for="runCycleInput">Target Accounting Month</label>
+              <input type="month" id="runCycleInput" class="neo-input" value="2026-10" required>
+            </div>
+            <div class="lab-field">
+              <label for="runWorkingDaysInput">Standard Work Days in Cycle</label>
+              <input type="number" id="runWorkingDaysInput" class="neo-input" value="22" min="15" max="31" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions-bar">
+          <button type="button" class="action-ghost-btn" onclick="document.getElementById('payrollRunModal').classList.remove('active')">Cancel</button>
+          <button type="submit" class="action-neo-btn">Execute Calculation Engine</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- COMMAND PALETTE (CTRL+K) -->
+  <div class="neo-modal-backdrop" id="cmdPaletteModal">
+    <div class="cmd-palette-box">
+      <div class="cmd-input-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="cmdPaletteInput" placeholder="Type a command or search talent (e.g. 'Aarav', 'run payroll', 'theme')...">
+        <kbd class="esc-badge">ESC</kbd>
+      </div>
+      <div class="cmd-results-list" id="cmdResultsList">
+        <!-- Filled dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Hub -->
+  <div id="neoToastHub" class="neo-toast-hub"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
