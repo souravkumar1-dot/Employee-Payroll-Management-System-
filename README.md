@@ -75,4 +75,4 @@ run.bat
 javac -d bin -sourcepath src src/com/payroll/PayrollServer.java
 java -cp bin com.payroll.PayrollServer
 ```
-Then visit: [http://localhost:8080/](http://localhost:8080/)
+Click here to view project [ https://souravkumar1-dot.github.io/Employee-Payroll-Management-System-/]
